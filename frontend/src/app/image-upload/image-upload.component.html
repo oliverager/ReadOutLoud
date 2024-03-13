@@ -1,0 +1,21 @@
+<ion-card>
+
+  <ion-card-header>
+    <ion-card-title>Upload et billede med tekst</ion-card-title>
+    <ion-card-subtitle>
+      <label for="picture">Upload et billede med tekst</label>
+      <input type="file" id="picture" name="Picture" accept="image/png, image/jpeg" (change)="displayImage($event)" />
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content  class="ion-text-center">
+    <div class="image-container">
+      <img id="uploaded-image" src="" alt="Uploaded Image">
+    </div>
+  </ion-card-content>
+
+  <ion-card-content>
+    Vis string af tekst
+  </ion-card-content>
+
+</ion-card>

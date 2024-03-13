@@ -1,0 +1,12 @@
+.image-container {
+  width:50%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#uploaded-image {
+  max-width: 50%;
+  max-height: 100%;
+}

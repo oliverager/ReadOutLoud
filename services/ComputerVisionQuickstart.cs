@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+﻿using System.Text.RegularExpressions;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 namespace services
@@ -42,8 +43,15 @@ namespace services
                     extractedText += line.Text + Environment.NewLine;
                 }
             }
+            // Remove "\r\n" between words
+            extractedText = RemoveNewLinesBetweenWords(extractedText);
 
             return extractedText;
+        }
+        private string RemoveNewLinesBetweenWords(string text)
+        {
+            // Use regular expression to remove "\r\n" between words
+            return Regex.Replace(text, @"\b\r\n\b", " ");
         }
 
         private static ComputerVisionClient Authenticate(string endpoint, string key)

@@ -15,5 +15,8 @@
 
   <app-image-upload>
   </app-image-upload>
+  <ion-input placeholder="https://i.stack.imgur.com/IvV2y.png" [formControl]="createNewImageUrlForm.controls.imageUrl"></ion-input>
+
+  <ion-button (click)="submit()">submit</ion-button>
 
 </ion-content>

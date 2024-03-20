@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Read Out Loud
+    <ion-title style="text-align: center; font-size: 1.5em; color: darkcyan; text-transform: initial;">
+      Image to Text
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -13,18 +14,37 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-image-upload></app-image-upload>
-  <ion-input placeholder="https://i.stack.imgur.com/IvV2y.png" [formControl]="createNewImageUrlForm.controls.imageUrl"></ion-input>
 
-  <ion-button (click)="submit()">Submit</ion-button>
 
-  <ion-button (click)="listen()">
-    <ion-icon name="volume-high"> </ion-icon>
-  </ion-button>
+  <ion-content class="ion-padding">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+      <div style="width: 80%; max-width: 800px; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; margin-top: 100px;">
+        <div style="width: 45%;">
+          <ion-item lines="none" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <ion-input placeholder="Enter Image URL" [formControl]="createNewImageUrlForm.controls.imageUrl" style="width: 100%; font-size: 1.5em; padding: 10px;"></ion-input>
+          </ion-item>
+          <ion-button (click)="submit()" expand="block" style="margin-top: 20px; font-size: 1.5em; width: 60%;">Submit</ion-button>
+        </div>
+        <div style="width: 50%; padding-left: 20px;">
+          <img src="" alt="placeholder" style="max-width: 100%; height: auto; border: 2px solid #ccc; padding: 15px; box-sizing: border-box; min-width: 300px; min-height: 300px" [src]="createNewImageUrlForm.controls.imageUrl.value">
+        </div>
+      </div>
 
-  <!-- Display the message from the server -->
-  <ion-item *ngIf="messageFromServer">
-    <ion-label>{{ messageFromServer }}</ion-label>
-  </ion-item>
-</ion-content>
+      <div style="width: 70%; max-width: 800px; margin-top: 100px;">
+        <div style="border: 1px solid #ccc; padding: 20px; font-size: 1.5em;">
+          <!-- Display the message from the server -->
+          <ion-item *ngIf="messageFromServer">
+            <ion-label>{{ messageFromServer }}</ion-label>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+
+
+
+
+
+
 
